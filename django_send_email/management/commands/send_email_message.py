@@ -124,9 +124,7 @@ class Command(BaseCommand):
 
         if verbosity > 1 or options['interactive']:
             for lst in ('recipient_list', 'cc'):
-                if not options[lst]:
-                    continue
-                options['{}_formatted'.format(lst)] = ', '.join(options[lst])
+                options['{}_formatted'.format(lst)] = ', '.join(options[lst] or [])
             self.stdout.write(CONFIRM_MESSAGE.format(**options))
 
         if options['interactive']:
