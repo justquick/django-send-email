@@ -60,7 +60,7 @@ class BaseEmailTest(TestCase):
 
 class BasicEmailTest(BaseEmailTest):
     message = {
-        'from_email': 'webmaster@localhost',
+        'from_email': settings.DEFAULT_FROM_EMAIL,
         'to': ['user@example.com'],
         'body': 'message',
         'subject': '[Django] subject'
